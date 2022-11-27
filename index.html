@@ -88,14 +88,40 @@
   </main>
 
   <script>
+    // Define divide-by-zero error
+    class DivByZeroError extends Error{
+      constructor(message){
+        super(message);
+        this.name = "DivByZeroError";
+      }
+    }
+    
+    
     let form = document.querySelector('form');
     form.addEventListener('submit', e => {
       e.preventDefault();
-      let output = document.querySelector('output');
-      let firstNum = document.querySelector('#first-num').value;
-      let secondNum = document.querySelector('#second-num').value;
-      let operator = document.querySelector('#operator').value;
-      output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
+      // Deal with invalid inputs
+      try {
+        let output = document.querySelector('output');
+        let firstNum = document.querySelector('#first-num').value;
+        let secondNum = document.querySelector('#second-num').value;
+        let operator = document.querySelector('#operator').value;
+
+        // Specifically error on divide by 0
+        if (operator == "/" && secondNum == "0"){
+          throw new DivByZeroError("That operation is illegal!!");
+        }
+
+        output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
+      } catch (error) {
+        console.log("Hmm, I can't perform this operation")
+        console.group();
+        console.log("Name: " + error.name);
+        console.log("Message: " + error.message);
+        console.groupEnd();
+      } finally {
+        console.log("Give me another equation to try!")
+      }
     });
 
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
