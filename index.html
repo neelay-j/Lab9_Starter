@@ -101,6 +101,88 @@
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
 
     // Start your code here
+
+    // Log Button
+    errorBtns[0].addEventListener("click", () => {
+      console.log("Console log demo");
+    });
+
+    // Error Button
+    errorBtns[1].addEventListener("click", () => {
+      console.error("Console error demo");
+    });
+
+    // Count Button
+    errorBtns[2].addEventListener("click", () => {
+      console.count("Console count demo");
+    });
+
+    // Warn Button
+    errorBtns[3].addEventListener("click", () => {
+      console.warn("Console warn demo");
+    });
+
+    // Assert Button
+    errorBtns[4].addEventListener("click", () => {
+      console.assert(false, "Console assert demo");
+    });
+
+    // Clear Button
+    errorBtns[5].addEventListener("click", () => {
+      console.clear();
+    });
+
+    // Dir Button
+    errorBtns[6].addEventListener("click", () => {
+      console.dir(errorBtns[6]);
+    });
+
+    // Dirxml Button
+    errorBtns[7].addEventListener("click", () => {
+      console.dirxml(form);
+    });
+
+    // Group Start Button
+    errorBtns[8].addEventListener("click", () => {
+      console.group();
+    });
+
+    // Group End Button
+    errorBtns[9].addEventListener("click", () => {
+      console.groupEnd();
+    });
+
+    // Table Button
+    errorBtns[10].addEventListener("click", () => {
+      console.table({
+        this: "banana",
+        is: "asfasdf"
+      });
+    });
+
+    // Start Timer Button
+    errorBtns[11].addEventListener("click", () => {
+      console.time("Console Time Demo");
+    });
+
+    // End Timer Button
+    errorBtns[12].addEventListener("click", () => {
+      console.timeEnd("Console Time Demo");
+    });
+
+    // Start Timer Button
+    errorBtns[13].addEventListener("click", () => {
+      function deep(){
+        console.trace();
+      }
+      deep();
+    });
+
+    // Global Error Button
+    errorBtns[14].addEventListener("click", () => {
+      eval("const s = 1; s = 2;");
+    });
+
     // You may move this JS to another file if you wish
   </script>
 </body>
