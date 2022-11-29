@@ -87,6 +87,14 @@
     </section>
   </main>
 
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS && TrackJS.install({ 
+      token: "2cf3a781134548fcbb3e2302589be9ce"
+      // for more configuration options, see https://docs.trackjs.com
+    });
+  </script>
+                        
   <script>
     // Define divide-by-zero error
     class DivByZeroError extends Error{
@@ -208,6 +216,10 @@
     errorBtns[14].addEventListener("click", () => {
       eval("const s = 1; s = 2;");
     });
+
+    window.onerror = (event, source, lineno, colno, error) => {
+      console.log("Oh dear, an error has occured");
+    };
 
     // You may move this JS to another file if you wish
   </script>
